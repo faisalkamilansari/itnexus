@@ -1,0 +1,159 @@
+faisalkamil@BUPC0015:~/Downloads$ docker logs -f buopsoit-app
+Waiting for PostgreSQL to be ready...
+postgres:5432 - accepting connections
+PostgreSQL is ready!
+Compiling initialization scripts...
+
+  dist/scripts/db-docker.js  14.0kb
+
+⚡ Done in 2ms
+
+  dist/scripts/init-db-docker.js  16.7kb
+
+⚡ Done in 3ms
+
+  dist/scripts/init-container.js  18.7kb
+
+⚡ Done in 2ms
+Initializing database schema...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting database schema initialization...
+No migrations directory found. Creating tables directly...
+Database connection successful. Server time: 2025-04-17T06:04:04.371Z
+Created username index. Checking column names in the users table...
+Created composite index on username and tenant_id columns.
+Basic tables created successfully.
+Database schema initialization completed.
+Database schema initialized successfully.
+Initializing default tenant and admin user...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:04.533Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:09.674Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:14.799Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:19.925Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:25.052Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:30.182Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:35.315Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:40.458Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:45.586Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:04:50.713Z
+Tenant table check result: undefined
+Error verifying database schema: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: Error: Tenants table does not exist. Please ensure database initialization was successful.
+    at initializeContainer (file:///app/dist/scripts/init-container.js:401:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...

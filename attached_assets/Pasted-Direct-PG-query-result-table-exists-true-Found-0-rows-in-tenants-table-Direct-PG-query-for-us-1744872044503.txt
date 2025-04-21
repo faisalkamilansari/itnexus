@@ -1,0 +1,66 @@
+Direct PG query result: [{"table_exists":true}]
+Found 0 rows in tenants table
+Direct PG query for users table: [{"table_exists":true}]
+Found 0 rows in users table
+Database tables verified successfully.
+Checking for default tenant...
+Default tenant already exists.
+Error handling tenant and user data: TypeError: Cannot read properties of undefined (reading 'id')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:499:48)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'id')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:499:48)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
++ echo 'Container initialization failed. Retrying in 5 seconds...'
++ sleep 5
++ ATTEMPT=2
++ '[' 2 -ge 20 ']'
++ node ./dist/scripts/init-container.js
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:40:16.072Z
+Raw tenant table check result: {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"table_exists":true}],"fields":[{"name":"table_exists","tableID":0,"columnID":0,"dataTypeID":16,"dataTypeSize":1,"dataTypeModifier":-1,"format":"text"}],"_parsers":[null],"_types":{},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"table_exists":null}}
+Direct PG query result: [{"table_exists":true}]
+Found 0 rows in tenants table
+Direct PG query for users table: [{"table_exists":true}]
+Found 0 rows in users table
+Database tables verified successfully.
+Checking for default tenant...
+Default tenant already exists.
+Error handling tenant and user data: TypeError: Cannot read properties of undefined (reading 'id')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:499:48)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'id')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:499:48)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
++ echo 'Container initialization failed. Retrying in 5 seconds...'
++ sleep 5
++ ATTEMPT=3
++ '[' 3 -ge 20 ']'
++ node ./dist/scripts/init-container.js
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:40:21.208Z
+Raw tenant table check result: {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"table_exists":true}],"fields":[{"name":"table_exists","tableID":0,"columnID":0,"dataTypeID":16,"dataTypeSize":1,"dataTypeModifier":-1,"format":"text"}],"_parsers":[null],"_types":{},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"table_exists":null}}
+Direct PG query result: [{"table_exists":true}]
+Found 0 rows in tenants table
+Direct PG query for users table: [{"table_exists":true}]
+Found 0 rows in users table
+Database tables verified successfully.
+Checking for default tenant...
+Default tenant already exists.
+Error handling tenant and user data: TypeError: Cannot read properties of undefined (reading 'id')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:499:48)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'id')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:499:48)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
++ echo 'Container initialization failed. Retrying in 5 seconds...'
++ sleep 5
+Container initialization failed. Retrying in 5 seconds...

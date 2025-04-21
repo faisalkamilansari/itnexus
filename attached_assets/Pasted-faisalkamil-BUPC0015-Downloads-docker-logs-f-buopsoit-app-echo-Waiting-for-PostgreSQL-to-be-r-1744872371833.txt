@@ -1,0 +1,252 @@
+faisalkamil@BUPC0015:~/Downloads$ docker logs -f buopsoit-app
++ echo 'Waiting for PostgreSQL to be ready...'
++ pg_isready -h postgres -p 5432 -U buopsoit
+Waiting for PostgreSQL to be ready...
+postgres:5432 - accepting connections
+PostgreSQL is ready!
+Compiling initialization scripts...
++ echo 'PostgreSQL is ready!'
++ ATTEMPT=0
++ echo 'Compiling initialization scripts...'
++ mkdir -p dist/scripts
++ npx esbuild scripts/db-docker.js --platform=node --packages=external --bundle --format=esm --outfile=dist/scripts/db-docker.js
+
+  dist/scripts/db-docker.js  14.0kb
+
+⚡ Done in 2ms
++ npx esbuild scripts/init-db-docker.js --platform=node --packages=external --bundle --format=esm --outfile=dist/scripts/init-db-docker.js
+
+  dist/scripts/init-db-docker.js  22.5kb
+
+⚡ Done in 3ms
++ npx esbuild scripts/init-container.js --platform=node --packages=external --bundle --format=esm --outfile=dist/scripts/init-container.js
+
+  dist/scripts/init-container.js  23.1kb
+
+⚡ Done in 3ms
+Initializing database schema...
++ echo 'Initializing database schema...'
++ node ./dist/scripts/init-db-docker.js
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting database schema initialization...
+No migrations directory found. Creating tables directly...
+Database connection successful. Server time: 2025-04-17T06:44:03.703Z
+Created username index. Checking column names in the users table...
+Created composite index on username and tenant_id columns.
+Verifying tables were created successfully...
+✅ Table 'tenants' verified
+✅ Table 'users' verified
+✅ Table 'assets' verified
+✅ Table 'incidents' verified
+✅ Table 'service_requests' verified
+✅ Table 'change_requests' verified
+✅ Table 'comments' verified
+✅ Table 'monitoring_alerts' verified
+✅ Table 'service_catalog' verified
+Column names in users table:
+  - created_at
+  - email
+  - first_name
+  - id
+  - last_name
+  - password
+  - role
+  - tenant_id
+  - username
+All database tables created and verified successfully.
+Database schema initialization completed.
+Database schema initialized successfully.
+Initializing default tenant and admin user...
++ echo 'Database schema initialized successfully.'
++ ATTEMPT=0
++ echo 'Initializing default tenant and admin user...'
++ node ./dist/scripts/init-container.js
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:44:03.874Z
+Raw tenant table check result: {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"table_exists":true}],"fields":[{"name":"table_exists","tableID":0,"columnID":0,"dataTypeID":16,"dataTypeSize":1,"dataTypeModifier":-1,"format":"text"}],"_parsers":[null],"_types":{},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"table_exists":null}}
+Direct PG query result: [{"table_exists":true}]
+Found 0 rows in tenants table
+Direct PG query for users table: [{"table_exists":true}]
+Found 0 rows in users table
+Database tables verified successfully.
+Checking for default tenant...
+Default tenant query result: {"command":"SELECT","rowCount":0,"oid":null,"rows":[],"fields":[{"name":"id","tableID":16473,"columnID":1,"dataTypeID":23,"dataTypeSize":4,"dataTypeModifier":-1,"format":"text"},{"name":"name","tableID":16473,"columnID":2,"dataTypeID":25,"dataTypeSize":-1,"dataTypeModifier":-1,"format":"text"},{"name":"subdomain","tableID":16473,"columnID":3,"dataTypeID":25,"dataTypeSize":-1,"dataTypeModifier":-1,"format":"text"},{"name":"settings","tableID":16473,"columnID":4,"dataTypeID":3802,"dataTypeSize":-1,"dataTypeModifier":-1,"format":"text"},{"name":"created_at","tableID":16473,"columnID":5,"dataTypeID":1114,"dataTypeSize":8,"dataTypeModifier":-1,"format":"text"}],"_parsers":[null,null,null,null,null],"_types":{},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"id":null,"name":null,"subdomain":null,"settings":null,"created_at":null}}
+Processed default tenant: []
+Creating default tenant...
+Default tenant created/found with ID: 1
+Default admin user created with ID: 1
+Default credentials: username: admin, password: admin123
+Container initialization complete.
++ echo 'Container initialization completed successfully.'
++ echo 'Starting BuopsoIT application...'
++ exec npm start
+Container initialization completed successfully.
+Starting BuopsoIT application...
+
+> rest-express@1.0.0 start
+> NODE_ENV=production node dist/index.js
+
+Checking for default tenant...
+Error initializing database: ErrorEvent {
+  [Symbol(kTarget)]: WebSocket {
+    _events: [Object: null prototype] {
+      error: [Function],
+      message: [Function],
+      close: [Function],
+      open: [Function]
+    },
+    _eventsCount: 4,
+    _maxListeners: undefined,
+    _binaryType: 'arraybuffer',
+    _closeCode: 1006,
+    _closeFrameReceived: false,
+    _closeFrameSent: false,
+    _closeMessage: <Buffer >,
+    _closeTimer: null,
+    _errorEmitted: true,
+    _extensions: {},
+    _paused: false,
+    _protocol: '',
+    _readyState: 3,
+    _receiver: null,
+    _sender: null,
+    _socket: null,
+    _bufferedAmount: 0,
+    _isServer: false,
+    _redirects: 0,
+    _autoPong: true,
+    _url: 'wss://postgres/v2',
+    _req: null,
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false
+  },
+  [Symbol(kType)]: 'error',
+  [Symbol(kError)]: Error: connect ECONNREFUSED 172.24.0.2:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '172.24.0.2',
+    port: 443
+  },
+  [Symbol(kMessage)]: 'connect ECONNREFUSED 172.24.0.2:443'
+}
+6:44:14 AM [express] serving on port 5000
+GET /api/user {
+  isAuthenticated: false,
+  hasUser: false,
+  sessionID: '_Et8rU5WRL8zDWIHxudquGCE-daw0R2v',
+  query: {}
+}
+Tenant middleware error: ErrorEvent {
+  [Symbol(kTarget)]: WebSocket {
+    _events: [Object: null prototype] {
+      error: [Function],
+      message: [Function],
+      close: [Function],
+      open: [Function]
+    },
+    _eventsCount: 4,
+    _maxListeners: undefined,
+    _binaryType: 'arraybuffer',
+    _closeCode: 1006,
+    _closeFrameReceived: false,
+    _closeFrameSent: false,
+    _closeMessage: <Buffer >,
+    _closeTimer: null,
+    _errorEmitted: true,
+    _extensions: {},
+    _paused: false,
+    _protocol: '',
+    _readyState: 3,
+    _receiver: null,
+    _sender: null,
+    _socket: null,
+    _bufferedAmount: 0,
+    _isServer: false,
+    _redirects: 0,
+    _autoPong: true,
+    _url: 'wss://postgres/v2',
+    _req: null,
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false
+  },
+  [Symbol(kType)]: 'error',
+  [Symbol(kError)]: Error: connect ECONNREFUSED 172.24.0.2:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '172.24.0.2',
+    port: 443
+  },
+  [Symbol(kMessage)]: 'connect ECONNREFUSED 172.24.0.2:443'
+}
+6:44:20 AM [express] GET /api/user 500 in 4ms :: {"message":"connect ECONNREFUSED 172.24.0.2:443"}
+Error: connect ECONNREFUSED 172.24.0.2:443
+    at file:///app/node_modules/@neondatabase/serverless/index.mjs:1345:74
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async NeonPreparedQuery.execute (file:///app/node_modules/drizzle-orm/neon-serverless/session.js:76:20)
+    at async DatabaseStorage.getTenantBySubdomain (file:///app/dist/index.js:408:22)
+    at async file:///app/dist/index.js:636:22
+POST /api/login {
+  isAuthenticated: false,
+  hasUser: false,
+  sessionID: 'aFFQTuspjDta8Fh8d4QTRAMG72LlyenD',
+  query: {}
+}
+Tenant middleware error: ErrorEvent {
+  [Symbol(kTarget)]: WebSocket {
+    _events: [Object: null prototype] {
+      error: [Function],
+      message: [Function],
+      close: [Function],
+      open: [Function]
+    },
+    _eventsCount: 4,
+    _maxListeners: undefined,
+    _binaryType: 'arraybuffer',
+    _closeCode: 1006,
+    _closeFrameReceived: false,
+    _closeFrameSent: false,
+    _closeMessage: <Buffer >,
+    _closeTimer: null,
+    _errorEmitted: true,
+    _extensions: {},
+    _paused: false,
+    _protocol: '',
+    _readyState: 3,
+    _receiver: null,
+    _sender: null,
+    _socket: null,
+    _bufferedAmount: 0,
+    _isServer: false,
+    _redirects: 0,
+    _autoPong: true,
+    _url: 'wss://postgres/v2',
+    _req: null,
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false
+  },
+  [Symbol(kType)]: 'error',
+  [Symbol(kError)]: Error: connect ECONNREFUSED 172.24.0.2:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '172.24.0.2',
+    port: 443
+  },
+  [Symbol(kMessage)]: 'connect ECONNREFUSED 172.24.0.2:443'
+}
+6:44:29 AM [express] POST /api/login 500 in 4ms :: {"message":"connect ECONNREFUSED 172.24.0.2:443"}
+Error: connect ECONNREFUSED 172.24.0.2:443
+    at file:///app/node_modules/@neondatabase/serverless/index.mjs:1345:74
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async NeonPreparedQuery.execute (file:///app/node_modules/drizzle-orm/neon-serverless/session.js:76:20)
+    at async DatabaseStorage.getTenantBySubdomain (file:///app/dist/index.js:408:22)
+    at async file:///app/dist/index.js:636:22

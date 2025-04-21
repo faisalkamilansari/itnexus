@@ -1,0 +1,124 @@
+Waiting for PostgreSQL to be ready...
+postgres:5432 - accepting connections
+PostgreSQL is ready!
+Compiling initialization scripts...
+
+  dist/scripts/db-docker.js  14.0kb
+
+⚡ Done in 3ms
+
+  dist/scripts/init-db-docker.js  16.7kb
+
+⚡ Done in 2ms
+
+  dist/scripts/init-container.js  18.4kb
+
+⚡ Done in 2ms
+Initializing database schema...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting database schema initialization...
+No migrations directory found. Creating tables directly...
+Database connection successful. Server time: 2025-04-17T05:55:35.256Z
+Created username index. Checking column names in the users table...
+Created composite index on username and tenant_id columns.
+Basic tables created successfully.
+Database schema initialization completed.
+Database schema initialized successfully.
+Initializing default tenant and admin user...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T05:55:35.413Z
+Error verifying database schema: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T05:55:40.546Z
+Error verifying database schema: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T05:55:45.674Z
+Error verifying database schema: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T05:55:50.799Z
+Error verifying database schema: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T05:55:55.928Z
+Error verifying database schema: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T05:56:01.058Z
+Error verifying database schema: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T05:56:06.186Z
+Error verifying database schema: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T05:56:11.320Z
+Error verifying database schema: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error during container initialization: TypeError: Cannot read properties of undefined (reading 'exists')
+    at initializeContainer (file:///app/dist/scripts/init-container.js:398:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Container initialization failed. Retrying in 5 seconds...

@@ -1,0 +1,94 @@
+queryClient.ts:40 
+        
+        
+       POST https://2b2faf57-5872-4e84-9344-ba9225795cc2-00-3nbc08jj41e8w.kirk.replit.dev/api/change-requests 400 (Bad Request)
+apiRequest @ queryClient.ts:40
+await in apiRequest
+createChangeRequest @ api.ts:72
+fn @ @tanstack_react-query.js?v=0d1a59bd:1189
+run @ @tanstack_react-query.js?v=0d1a59bd:494
+start @ @tanstack_react-query.js?v=0d1a59bd:536
+execute @ @tanstack_react-query.js?v=0d1a59bd:1225
+await in execute
+mutate @ @tanstack_react-query.js?v=0d1a59bd:2630
+(anonymous) @ @tanstack_react-query.js?v=0d1a59bd:3295
+onSubmit @ change-form.tsx:188
+(anonymous) @ chunk-YABUFNLM.js?v=0d1a59bd:1675
+await in (anonymous)
+callCallback2 @ chunk-RPCDYKBN.js?v=0d1a59bd:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=0d1a59bd:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=0d1a59bd:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-RPCDYKBN.js?v=0d1a59bd:3736
+executeDispatch @ chunk-RPCDYKBN.js?v=0d1a59bd:7014
+processDispatchQueueItemsInOrder @ chunk-RPCDYKBN.js?v=0d1a59bd:7034
+processDispatchQueue @ chunk-RPCDYKBN.js?v=0d1a59bd:7043
+dispatchEventsForPlugins @ chunk-RPCDYKBN.js?v=0d1a59bd:7051
+(anonymous) @ chunk-RPCDYKBN.js?v=0d1a59bd:7174
+batchedUpdates$1 @ chunk-RPCDYKBN.js?v=0d1a59bd:18913
+batchedUpdates @ chunk-RPCDYKBN.js?v=0d1a59bd:3579
+dispatchEventForPluginEventSystem @ chunk-RPCDYKBN.js?v=0d1a59bd:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-RPCDYKBN.js?v=0d1a59bd:5478
+dispatchEvent @ chunk-RPCDYKBN.js?v=0d1a59bd:5472
+dispatchDiscreteEvent @ chunk-RPCDYKBN.js?v=0d1a59bd:5449Understand this errorAI
+queryClient.ts:51 API Response: 400 Bad Request
+queryClient.ts:58 API Error (400): {message: 'Invalid change request data', errors: Array(2), details: '{"_errors":[],"scheduledStartTime":{"_errors":["Ex…":{"_errors":["Expected date, received string"]}}'}
+apiRequest @ queryClient.ts:58
+await in apiRequest
+createChangeRequest @ api.ts:72
+fn @ @tanstack_react-query.js?v=0d1a59bd:1189
+run @ @tanstack_react-query.js?v=0d1a59bd:494
+start @ @tanstack_react-query.js?v=0d1a59bd:536
+execute @ @tanstack_react-query.js?v=0d1a59bd:1225
+await in execute
+mutate @ @tanstack_react-query.js?v=0d1a59bd:2630
+(anonymous) @ @tanstack_react-query.js?v=0d1a59bd:3295
+onSubmit @ change-form.tsx:188
+(anonymous) @ chunk-YABUFNLM.js?v=0d1a59bd:1675
+await in (anonymous)
+callCallback2 @ chunk-RPCDYKBN.js?v=0d1a59bd:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=0d1a59bd:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=0d1a59bd:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-RPCDYKBN.js?v=0d1a59bd:3736
+executeDispatch @ chunk-RPCDYKBN.js?v=0d1a59bd:7014
+processDispatchQueueItemsInOrder @ chunk-RPCDYKBN.js?v=0d1a59bd:7034
+processDispatchQueue @ chunk-RPCDYKBN.js?v=0d1a59bd:7043
+dispatchEventsForPlugins @ chunk-RPCDYKBN.js?v=0d1a59bd:7051
+(anonymous) @ chunk-RPCDYKBN.js?v=0d1a59bd:7174
+batchedUpdates$1 @ chunk-RPCDYKBN.js?v=0d1a59bd:18913
+batchedUpdates @ chunk-RPCDYKBN.js?v=0d1a59bd:3579
+dispatchEventForPluginEventSystem @ chunk-RPCDYKBN.js?v=0d1a59bd:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-RPCDYKBN.js?v=0d1a59bd:5478
+dispatchEvent @ chunk-RPCDYKBN.js?v=0d1a59bd:5472
+dispatchDiscreteEvent @ chunk-RPCDYKBN.js?v=0d1a59bd:5449Understand this errorAI
+queryClient.ts:76 API Request failed: Error: 400: Invalid change request data: [{"code":"invalid_type","expected":"date","received":"string","path":["scheduledStartTime"],"message":"Expected date, received string"},{"code":"invalid_type","expected":"date","received":"string","path":["scheduledEndTime"],"message":"Expected date, received string"}]
+    at apiRequest (queryClient.ts:71:13)
+    at async Object.createChangeRequest [as mutationFn] (api.ts:72:15)
+apiRequest @ queryClient.ts:76
+await in apiRequest
+createChangeRequest @ api.ts:72
+fn @ @tanstack_react-query.js?v=0d1a59bd:1189
+run @ @tanstack_react-query.js?v=0d1a59bd:494
+start @ @tanstack_react-query.js?v=0d1a59bd:536
+execute @ @tanstack_react-query.js?v=0d1a59bd:1225
+await in execute
+mutate @ @tanstack_react-query.js?v=0d1a59bd:2630
+(anonymous) @ @tanstack_react-query.js?v=0d1a59bd:3295
+onSubmit @ change-form.tsx:188
+(anonymous) @ chunk-YABUFNLM.js?v=0d1a59bd:1675
+await in (anonymous)
+callCallback2 @ chunk-RPCDYKBN.js?v=0d1a59bd:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=0d1a59bd:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=0d1a59bd:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-RPCDYKBN.js?v=0d1a59bd:3736
+executeDispatch @ chunk-RPCDYKBN.js?v=0d1a59bd:7014
+processDispatchQueueItemsInOrder @ chunk-RPCDYKBN.js?v=0d1a59bd:7034
+processDispatchQueue @ chunk-RPCDYKBN.js?v=0d1a59bd:7043
+dispatchEventsForPlugins @ chunk-RPCDYKBN.js?v=0d1a59bd:7051
+(anonymous) @ chunk-RPCDYKBN.js?v=0d1a59bd:7174
+batchedUpdates$1 @ chunk-RPCDYKBN.js?v=0d1a59bd:18913
+batchedUpdates @ chunk-RPCDYKBN.js?v=0d1a59bd:3579
+dispatchEventForPluginEventSystem @ chunk-RPCDYKBN.js?v=0d1a59bd:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-RPCDYKBN.js?v=0d1a59bd:5478
+dispatchEvent @ chunk-RPCDYKBN.js?v=0d1a59bd:5472
+dispatchDiscreteEvent @ chunk-RPCDYKBN.js?v=0d1a59bd:5449Understand this errorAI
+use-tenant.tsx:35 

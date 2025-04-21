@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "/usr/bin/docker-compose", line 33, in <module>
+    sys.exit(load_entry_point('docker-compose==1.29.2', 'console_scripts', 'docker-compose')())
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 81, in main
+    command_func()
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 200, in perform_command
+    project = project_from_options('.', options)
+  File "/usr/lib/python3/dist-packages/compose/cli/command.py", line 60, in project_from_options
+    return get_project(
+  File "/usr/lib/python3/dist-packages/compose/cli/command.py", line 144, in get_project
+    config_details = config.find(project_dir, config_path, environment, override_dir)
+  File "/usr/lib/python3/dist-packages/compose/config/config.py", line 317, in find
+    filenames = get_default_config_files(base_dir)
+  File "/usr/lib/python3/dist-packages/compose/config/config.py", line 353, in get_default_config_files
+    (candidates, path) = find_candidates_in_parent_dirs(SUPPORTED_FILENAMES, base_dir)
+  File "/usr/lib/python3/dist-packages/compose/config/config.py", line 389, in find_candidates_in_parent_dirs
+    if os.path.abspath(parent_dir) != os.path.abspath(path):
+  File "/usr/lib/python3.10/posixpath.py", line 384, in abspath
+    cwd = os.getcwd()
+FileNotFoundError: [Errno 2] No such file or directory
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 76, in apport_excepthook
+    binary = os.path.realpath(os.path.join(os.getcwd(), sys.argv[0]))
+FileNotFoundError: [Errno 2] No such file or directory
+
+Original exception was:
+Traceback (most recent call last):
+  File "/usr/bin/docker-compose", line 33, in <module>
+    sys.exit(load_entry_point('docker-compose==1.29.2', 'console_scripts', 'docker-compose')())
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 81, in main
+    command_func()
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 200, in perform_command
+    project = project_from_options('.', options)
+  File "/usr/lib/python3/dist-packages/compose/cli/command.py", line 60, in project_from_options
+    return get_project(
+  File "/usr/lib/python3/dist-packages/compose/cli/command.py", line 144, in get_project
+    config_details = config.find(project_dir, config_path, environment, override_dir)
+  File "/usr/lib/python3/dist-packages/compose/config/config.py", line 317, in find
+    filenames = get_default_config_files(base_dir)
+  File "/usr/lib/python3/dist-packages/compose/config/config.py", line 353, in get_default_config_files
+    (candidates, path) = find_candidates_in_parent_dirs(SUPPORTED_FILENAMES, base_dir)
+  File "/usr/lib/python3/dist-packages/compose/config/config.py", line 389, in find_candidates_in_parent_dirs
+    if os.path.abspath(parent_dir) != os.path.abspath(path):
+  File "/usr/lib/python3.10/posixpath.py", line 384, in abspath
+    cwd = os.getcwd()
+FileNotFoundError: [Errno 2] No such file or directory

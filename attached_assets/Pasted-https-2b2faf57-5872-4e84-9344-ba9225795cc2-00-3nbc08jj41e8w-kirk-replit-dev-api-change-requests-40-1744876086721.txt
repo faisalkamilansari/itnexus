@@ -1,0 +1,74 @@
+https://2b2faf57-5872-4e84-9344-ba9225795cc2-00-3nbc08jj41e8w.kirk.replit.dev/api/change-requests 400 (Bad Request)
+apiRequest	@	queryClient.ts:40
+await in apiRequest		
+createChangeRequest	@	api.ts:72
+await in execute		
+onSubmit	@	change-form.tsx:188
+queryClient.ts:51 API Response: 400 Bad Request
+queryClient.ts:58 API Error (400): 
+{message: 'Invalid change request data', errors: Array(2), details: '{"_errors":[],"scheduledStartTime":{"_errors":["Ex…":{"_errors":["Expected date, received string"]}}'}
+details
+: 
+"{\"_errors\":[],\"scheduledStartTime\":{\"_errors\":[\"Expected date, received string\"]},\"scheduledEndTime\":{\"_errors\":[\"Expected date, received string\"]}}"
+errors
+: 
+(2) [{…}, {…}]
+message
+: 
+"Invalid change request data"
+[[Prototype]]
+: 
+Object
+apiRequest	@	queryClient.ts:58
+await in apiRequest		
+createChangeRequest	@	api.ts:72
+await in execute		
+onSubmit	@	change-form.tsx:188
+queryClient.ts:76 API Request failed: Error: 400: Invalid change request data: [{"code":"invalid_type","expected":"date","received":"string","path":["scheduledStartTime"],"message":"Expected date, received string"},{"code":"invalid_type","expected":"date","received":"string","path":["scheduledEndTime"],"message":"Expected date, received string"}]
+    at apiRequest (queryClient.ts:71:13)
+    at async Object.createChangeRequest [as mutationFn] (api.ts:72:15)
+apiRequest	@	queryClient.ts:76
+await in apiRequest		
+createChangeRequest	@	api.ts:72
+await in execute		
+onSubmit	@	change-form.tsx:188
+use-tenant.tsx:35 Tenant data loaded: 
+{id: 7, name: 'Faisal Org', subdomain: 'faisalorg15118', settings: {…}, createdAt: '2025-04-16T13:23:35.154Z'}
+createdAt
+: 
+"2025-04-16T13:23:35.154Z"
+id
+: 
+7
+name
+: 
+"Faisal Org"
+settings
+: 
+{logoUrl: null, customCss: null, primaryColor: '#3b82f6'}
+subdomain
+: 
+"faisalorg15118"
+[[Prototype]]
+: 
+Object
+use-tenant.tsx:35 Tenant data loaded: 
+{id: 7, name: 'Faisal Org', subdomain: 'faisalorg15118', settings: {…}, createdAt: '2025-04-16T13:23:35.154Z'}
+createdAt
+: 
+"2025-04-16T13:23:35.154Z"
+id
+: 
+7
+name
+: 
+"Faisal Org"
+settings
+: 
+{logoUrl: null, customCss: null, primaryColor: '#3b82f6'}
+subdomain
+: 
+"faisalorg15118"
+[[Prototype]]
+: 
+Object

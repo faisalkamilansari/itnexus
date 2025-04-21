@@ -1,0 +1,150 @@
+faisalkamil@BUPC0015:~/Downloads$ docker logs -f buopsoit-app
++ echo 'Waiting for PostgreSQL to be ready...'
++ pg_isready -h postgres -p 5432 -U buopsoit
+Waiting for PostgreSQL to be ready...
+postgres:5432 - accepting connections
+PostgreSQL is ready!
+Compiling initialization scripts...
++ echo 'PostgreSQL is ready!'
++ ATTEMPT=0
++ echo 'Compiling initialization scripts...'
++ mkdir -p dist/scripts
++ npx esbuild scripts/db-docker.js --platform=node --packages=external --bundle --format=esm --outfile=dist/scripts/db-docker.js
+
+  dist/scripts/db-docker.js  14.0kb
+
+⚡ Done in 2ms
++ npx esbuild scripts/init-db-docker.js --platform=node --packages=external --bundle --format=esm --outfile=dist/scripts/init-db-docker.js
+
+  dist/scripts/init-db-docker.js  22.5kb
+
+⚡ Done in 3ms
++ npx esbuild scripts/init-container.js --platform=node --packages=external --bundle --format=esm --outfile=dist/scripts/init-container.js
+
+  dist/scripts/init-container.js  23.1kb
+
+⚡ Done in 2ms
+Initializing database schema...
++ echo 'Initializing database schema...'
++ node ./dist/scripts/init-db-docker.js
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting database schema initialization...
+No migrations directory found. Creating tables directly...
+Database connection successful. Server time: 2025-04-17T06:55:25.582Z
+Created username index. Checking column names in the users table...
+Created composite index on username and tenant_id columns.
+Verifying tables were created successfully...
+✅ Table 'tenants' verified
+✅ Table 'users' verified
+✅ Table 'assets' verified
+✅ Table 'incidents' verified
+✅ Table 'service_requests' verified
+✅ Table 'change_requests' verified
+✅ Table 'comments' verified
+✅ Table 'monitoring_alerts' verified
+✅ Table 'service_catalog' verified
+Column names in users table:
+  - created_at
+  - email
+  - first_name
+  - id
+  - last_name
+  - password
+  - role
+  - tenant_id
+  - username
+All database tables created and verified successfully.
+Database schema initialization completed.
++ echo 'Database schema initialized successfully.'
++ ATTEMPT=0
+Database schema initialized successfully.
++ echo 'Initializing default tenant and admin user...'
+Initializing default tenant and admin user...
++ node ./dist/scripts/init-container.js
+Initializing Docker database connection
+Connecting to PostgreSQL at postgres:5432 with user buopsoit
+Starting container initialization...
+Verifying database connection and schema...
+Database connection successful. Server time: 2025-04-17T06:55:25.764Z
+Raw tenant table check result: {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"table_exists":true}],"fields":[{"name":"table_exists","tableID":0,"columnID":0,"dataTypeID":16,"dataTypeSize":1,"dataTypeModifier":-1,"format":"text"}],"_parsers":[null],"_types":{},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"table_exists":null}}
+Direct PG query result: [{"table_exists":true}]
+Found 1 rows in tenants table
+Direct PG query for users table: [{"table_exists":true}]
+Found 1 rows in users table
+Database tables verified successfully.
+Checking for default tenant...
+Default tenant query result: {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"id":1,"name":"Default Organization","subdomain":"default","settings":{"logoUrl":null,"customCss":null,"primaryColor":"#4f46e5"},"created_at":"2025-04-17 06:44:03.890565"}],"fields":[{"name":"id","tableID":16473,"columnID":1,"dataTypeID":23,"dataTypeSize":4,"dataTypeModifier":-1,"format":"text"},{"name":"name","tableID":16473,"columnID":2,"dataTypeID":25,"dataTypeSize":-1,"dataTypeModifier":-1,"format":"text"},{"name":"subdomain","tableID":16473,"columnID":3,"dataTypeID":25,"dataTypeSize":-1,"dataTypeModifier":-1,"format":"text"},{"name":"settings","tableID":16473,"columnID":4,"dataTypeID":3802,"dataTypeSize":-1,"dataTypeModifier":-1,"format":"text"},{"name":"created_at","tableID":16473,"columnID":5,"dataTypeID":1114,"dataTypeSize":8,"dataTypeModifier":-1,"format":"text"}],"_parsers":[null,null,null,null,null],"_types":{},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"id":null,"name":null,"subdomain":null,"settings":null,"created_at":null}}
+Processed default tenant: [
+  {
+    id: 1,
+    name: 'Default Organization',
+    subdomain: 'default',
+    settings: { logoUrl: null, customCss: null, primaryColor: '#4f46e5' },
+    created_at: '2025-04-17 06:44:03.890565'
+  }
+]
+Default tenant already exists.
+Using tenant ID from defaultTenant[0].id: 1
+Default admin user already exists.
+Container initialization complete.
++ echo 'Container initialization completed successfully.'
++ echo 'Starting BuopsoIT application...'
++ exec npm start
+Container initialization completed successfully.
+Starting BuopsoIT application...
+
+> rest-express@1.0.0 start
+> NODE_ENV=production node dist/index.js
+
+Database connection mode: Docker (Standard)
+Initializing database connection...
+Initializing standard PostgreSQL client for Docker environment
+Failed to connect to Docker PostgreSQL: error: password authentication failed for user "${POSTGRES_USER"
+    at /app/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async initializeDockerDb (file:///app/dist/index.js:381:20)
+    at async initializeDatabase (file:///app/dist/index.js:457:40)
+    at async file:///app/dist/index.js:1953:5 {
+  length: 111,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '326',
+  routine: 'auth_failed'
+}
+Error initializing database: error: password authentication failed for user "${POSTGRES_USER"
+    at /app/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async initializeDockerDb (file:///app/dist/index.js:381:20)
+    at async initializeDatabase (file:///app/dist/index.js:457:40)
+    at async file:///app/dist/index.js:1953:5 {
+  length: 111,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '326',
+  routine: 'auth_failed'
+}
