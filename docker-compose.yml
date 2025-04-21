@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: buopsoit-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-buopsoit}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-buopsoitpassword}
+      POSTGRES_DB: ${POSTGRES_DB:-buopsoit}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U buopsoit"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - buopsoit-network
+
+  buopsoit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: buopsoit-app
+    ports:
+      - "${PORT:-5000}:5000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: ${PORT:-5000}
+      SESSION_SECRET: ${SESSION_SECRET:-buopsoit_change_this_in_production}
+      # Use the simpler form without nested variables which can cause issues
+      DATABASE_URL: ${DATABASE_URL:-postgres://buopsoit:buopsoitpassword@postgres:5432/buopsoit}
+      PGHOST: postgres
+      PGPORT: 5432
+      PGUSER: ${POSTGRES_USER:-buopsoit}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-buopsoitpassword}
+      PGDATABASE: ${POSTGRES_DB:-buopsoit}
+      ENABLE_METRICS: ${ENABLE_METRICS:-true}
+      METRICS_PATH: ${METRICS_PATH:-/metrics}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - buopsoit-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  buopsoit-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
