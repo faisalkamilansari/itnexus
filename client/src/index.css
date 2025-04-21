@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  /* Improved date input styling */
+  input[type="date"] {
+    @apply appearance-none;
+  }
+  
+  /* Hide native date picker icon and use our custom one */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    @apply opacity-0 absolute inset-0 w-full h-full cursor-pointer;
+  }
+  
+  /* Styling for the date input container */
+  .date-input-container {
+    @apply relative;
+  }
+  
+  /* Make sure the calendar icon is visible and positioned correctly */
+  .date-input-container .calendar-icon {
+    @apply absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-muted-foreground;
+  }
+  
+  /* Prevent the date input from being affected by autocomplete styles */
+  input.date-input:-webkit-autofill,
+  input.date-input:-webkit-autofill:hover,
+  input.date-input:-webkit-autofill:focus {
+    -webkit-text-fill-color: inherit;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  /* Ensure the placeholder text is visible */
+  input.date-input::placeholder {
+    @apply text-muted-foreground opacity-100;
+  }
+}
