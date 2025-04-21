@@ -1,0 +1,85 @@
+Create a complete multi-tenant SaaS platform named BuopsoIT, focused on core IT Service Management (ITSM) features for enterprise IT teams. This software should act as a lightweight alternative to ServiceNow and be built using Node.js (Express) for the backend, React for the frontend, and PostgreSQL as the database.
+
+Please structure the code in a Replit-compatible format with proper folders such as /client for the frontend, /server for the backend, and clearly organized database schema or migration files.
+
+Modules & Features to Implement:
+
+Incident Management
+
+Users can create incidents with severity levels, asset links, and auto-assignment to IT agents.
+
+Include SLA countdown, escalation rules, and resolution status tracking.
+
+Service Request Management
+
+Implement a service catalog (e.g., password reset, laptop request).
+
+Support custom request forms, approval flows, and request tracking.
+
+Change Management
+
+Users can create change requests with impact and risk assessments.
+
+Include approval workflows and scheduling calendars.
+
+Monitoring and Alerts
+
+Add a dashboard UI to show system health metrics (CPU, memory, uptime).
+
+Simulate monitoring data and trigger alerts based on thresholds.
+
+Auto-generate incident tickets when alerts are triggered.
+
+IT Asset Management
+
+Create a basic asset inventory for servers, devices, and applications.
+
+Link tickets and alerts to associated assets.
+
+Dashboards and Reports
+
+Build role-based dashboards for Admins, Agents, and End Users.
+
+Display ticket statistics, SLA breaches, and system health status.
+
+Authentication and Access Control
+
+Implement login with roles: Admin, Agent, End User.
+
+Use JWT or session-based authentication.
+
+Enforce Role-Based Access Control (RBAC).
+
+Multi-Tenant Support
+
+Allow multiple companies (tenants) with isolated data, configurations, and branding.
+
+Use a tenant_id field in tables to separate tenant-specific data.
+
+RESTful API
+
+Provide API endpoints to create, read, update, and delete tickets and alerts.
+
+Enable integration with third-party monitoring tools.
+
+Tech Stack:
+
+Frontend: React + Tailwind CSS
+
+Backend: Node.js with Express
+
+Database: PostgreSQL
+
+Authentication: JWT or session
+
+Deployment: Replit-compatible (with .replit file for start command)
+
+Requirements:
+
+Organize the codebase for full-stack development in Replit.
+
+Use environment variables for database connection strings and other config values.
+
+Include a README file with clear setup instructions.
+
+For the monitoring module, mock data is acceptable in this demo version.
